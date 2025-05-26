@@ -1,88 +1,171 @@
 package com.example.credit;
 
+/**
+ * DTO para recibir los parámetros de la petición de crédito.
+ */
 public class CreditRequest {
-    // Numéricos
-    private double duration;
-    private double creditAmount;
-    private double residenceSince;
-    private double age;
-    private double existingCredits;
-    private double peopleLiable;
-
-    // Nominales
     private String checkingStatus;
+    private int duration;
     private String creditHistory;
     private String purpose;
-    private String savings;
+    private double creditAmount;
+    private String savingsStatus;
     private String employment;
+    private int installmentCommitment;
     private String personalStatus;
-    private String otherDebtors;
-    private String property;
-    private String otherInstallments;
+    private String otherParties;
+    private int residenceSince;
+    private String propertyMagnitude;
+    private int age;
+    private String otherPaymentPlans;
     private String housing;
+    private int existingCredits;
     private String job;
-    private String telephone;
+    private int numDependents;
+    private String ownTelephone;
     private String foreignWorker;
 
-    // Constructor vacío necesario para Jackson
-    public CreditRequest() { }
+    // Constructor sin argumentos (necesario para deserialización JSON)
+    public CreditRequest() {
+    }
 
-    // Getters y setters numéricos
-    public double getDuration() { return duration; }
-    public void setDuration(double duration) { this.duration = duration; }
+    public String getCheckingStatus() {
+        return checkingStatus;
+    }
+    public void setCheckingStatus(String checkingStatus) {
+        this.checkingStatus = checkingStatus;
+    }
 
-    public double getCreditAmount() { return creditAmount; }
-    public void setCreditAmount(double creditAmount) { this.creditAmount = creditAmount; }
+    public int getDuration() {
+        return duration;
+    }
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
 
-    public double getResidenceSince() { return residenceSince; }
-    public void setResidenceSince(double residenceSince) { this.residenceSince = residenceSince; }
+    public String getCreditHistory() {
+        return creditHistory;
+    }
+    public void setCreditHistory(String creditHistory) {
+        this.creditHistory = creditHistory;
+    }
 
-    public double getAge() { return age; }
-    public void setAge(double age) { this.age = age; }
+    public String getPurpose() {
+        return purpose;
+    }
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
 
-    public double getExistingCredits() { return existingCredits; }
-    public void setExistingCredits(double existingCredits) { this.existingCredits = existingCredits; }
+    public double getCreditAmount() {
+        return creditAmount;
+    }
+    public void setCreditAmount(double creditAmount) {
+        this.creditAmount = creditAmount;
+    }
 
-    public double getPeopleLiable() { return peopleLiable; }
-    public void setPeopleLiable(double peopleLiable) { this.peopleLiable = peopleLiable; }
+    public String getSavingsStatus() {
+        return savingsStatus;
+    }
+    public void setSavingsStatus(String savingsStatus) {
+        this.savingsStatus = savingsStatus;
+    }
 
-    // Getters y setters nominales
-    public String getCheckingStatus() { return checkingStatus; }
-    public void setCheckingStatus(String checkingStatus) { this.checkingStatus = checkingStatus; }
+    public String getEmployment() {
+        return employment;
+    }
+    public void setEmployment(String employment) {
+        this.employment = employment;
+    }
 
-    public String getCreditHistory() { return creditHistory; }
-    public void setCreditHistory(String creditHistory) { this.creditHistory = creditHistory; }
+    public int getInstallmentCommitment() {
+        return installmentCommitment;
+    }
+    public void setInstallmentCommitment(int installmentCommitment) {
+        this.installmentCommitment = installmentCommitment;
+    }
 
-    public String getPurpose() { return purpose; }
-    public void setPurpose(String purpose) { this.purpose = purpose; }
+    public String getPersonalStatus() {
+        return personalStatus;
+    }
+    public void setPersonalStatus(String personalStatus) {
+        this.personalStatus = personalStatus;
+    }
 
-    public String getSavings() { return savings; }
-    public void setSavings(String savings) { this.savings = savings; }
+    public String getOtherParties() {
+        return otherParties;
+    }
+    public void setOtherParties(String otherParties) {
+        this.otherParties = otherParties;
+    }
 
-    public String getEmployment() { return employment; }
-    public void setEmployment(String employment) { this.employment = employment; }
+    public int getResidenceSince() {
+        return residenceSince;
+    }
+    public void setResidenceSince(int residenceSince) {
+        this.residenceSince = residenceSince;
+    }
 
-    public String getPersonalStatus() { return personalStatus; }
-    public void setPersonalStatus(String personalStatus) { this.personalStatus = personalStatus; }
+    public String getPropertyMagnitude() {
+        return propertyMagnitude;
+    }
+    public void setPropertyMagnitude(String propertyMagnitude) {
+        this.propertyMagnitude = propertyMagnitude;
+    }
 
-    public String getOtherDebtors() { return otherDebtors; }
-    public void setOtherDebtors(String otherDebtors) { this.otherDebtors = otherDebtors; }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
 
-    public String getProperty() { return property; }
-    public void setProperty(String property) { this.property = property; }
+    public String getOtherPaymentPlans() {
+        return otherPaymentPlans;
+    }
+    public void setOtherPaymentPlans(String otherPaymentPlans) {
+        this.otherPaymentPlans = otherPaymentPlans;
+    }
 
-    public String getOtherInstallments() { return otherInstallments; }
-    public void setOtherInstallments(String otherInstallments) { this.otherInstallments = otherInstallments; }
+    public String getHousing() {
+        return housing;
+    }
+    public void setHousing(String housing) {
+        this.housing = housing;
+    }
 
-    public String getHousing() { return housing; }
-    public void setHousing(String housing) { this.housing = housing; }
+    public int getExistingCredits() {
+        return existingCredits;
+    }
+    public void setExistingCredits(int existingCredits) {
+        this.existingCredits = existingCredits;
+    }
 
-    public String getJob() { return job; }
-    public void setJob(String job) { this.job = job; }
+    public String getJob() {
+        return job;
+    }
+    public void setJob(String job) {
+        this.job = job;
+    }
 
-    public String getTelephone() { return telephone; }
-    public void setTelephone(String telephone) { this.telephone = telephone; }
+    public int getNumDependents() {
+        return numDependents;
+    }
+    public void setNumDependents(int numDependents) {
+        this.numDependents = numDependents;
+    }
 
-    public String getForeignWorker() { return foreignWorker; }
-    public void setForeignWorker(String foreignWorker) { this.foreignWorker = foreignWorker; }
+    public String getOwnTelephone() {
+        return ownTelephone;
+    }
+    public void setOwnTelephone(String ownTelephone) {
+        this.ownTelephone = ownTelephone;
+    }
+
+    public String getForeignWorker() {
+        return foreignWorker;
+    }
+    public void setForeignWorker(String foreignWorker) {
+        this.foreignWorker = foreignWorker;
+    }
 }

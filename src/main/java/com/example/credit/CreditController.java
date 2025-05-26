@@ -1,43 +1,21 @@
 package com.example.credit;
 
-import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/credit")
+@RequestMapping("/credit")
 public class CreditController {
 
-    @Autowired
-    private CreditModelService service;
+    private final CreditModelService service;
 
-    @GetMapping("/evaluate")
-    public String eval() throws Exception {
-        // Devuelve el reporte de accuracy para todos los modelos
-        return service.getEvaluationReport();
+    @Autowired
+    public CreditController(CreditModelService service) {
+        this.service = service;
     }
 
     @PostMapping("/predict")
-    public PredictionResponse predict(@RequestBody CreditRequest req) throws Exception {
-        // 1) Construir instancia
-        weka.core.Instance inst = service.buildInstance(req);
-        // 2) Predecir
-        String predictedClass = service.predictWithNaiveBayes(inst);
-        // 3) Devolver JSON
-        return new PredictionResponse(predictedClass,
-                "1 = buen pagador; 2 = mal pagador");
-    }
-
-    // DTO de respuesta
-    static class PredictionResponse {
-        private String predictedClass;
-        private String note;
-
-        public PredictionResponse(String cls, String note) {
-            this.predictedClass = cls;
-            this.note = note;
-        }
-        // getters
-        public String getPredictedClass() { return predictedClass; }
-        public String getNote() { return note; }
+    public CreditModel predict(@RequestBody CreditRequest req) throws Exception {
+        return service.predict(req);
     }
 }
