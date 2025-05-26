@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/credit")
 public class CreditController {
-
+//Tecnical
     private final CreditModelService service;
 
     public CreditController(CreditModelService service) {
