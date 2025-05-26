@@ -1,171 +1,132 @@
 package com.example.credit;
 
-/**
- * DTO para recibir los parámetros de la petición de crédito.
- */
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "Datos de entrada para la predicción de crédito")
 public class CreditRequest {
+
+    @Schema(description = "Estado de cuenta corriente", example = "<0")
     private String checkingStatus;
+
+    @Schema(description = "Duración del crédito en meses", example = "12")
     private int duration;
+
+    @Schema(description = "Historial crediticio", example = "all paid")
     private String creditHistory;
+
+    @Schema(description = "Propósito del crédito", example = "radio/tv")
     private String purpose;
+
+    @Schema(description = "Monto del crédito", example = "1000")
     private double creditAmount;
+
+    @Schema(description = "Estado de ahorros", example = "<100")
     private String savingsStatus;
+
+    @Schema(description = "Nivel de empleo", example = "1<=X<4")
     private String employment;
+
+    @Schema(description = "Compromiso de cuota mensual", example = "2")
     private int installmentCommitment;
+
+    @Schema(description = "Estado civil y género", example = "male single")
     private String personalStatus;
+
+    @Schema(description = "Otros deudores", example = "none")
     private String otherParties;
+
+    @Schema(description = "Años de residencia", example = "4")
     private int residenceSince;
+
+    @Schema(description = "Magnitud de la propiedad", example = "real estate")
     private String propertyMagnitude;
+
+    @Schema(description = "Edad", example = "35")
     private int age;
+
+    @Schema(description = "Otros planes de pago", example = "none")
     private String otherPaymentPlans;
+
+    @Schema(description = "Tipo de vivienda", example = "own")
     private String housing;
+
+    @Schema(description = "Créditos existentes", example = "1")
     private int existingCredits;
+
+    @Schema(description = "Ocupación/Trabajo", example = "skilled")
     private String job;
+
+    @Schema(description = "Número de dependientes", example = "1")
     private int numDependents;
+
+    @Schema(description = "¿Tiene teléfono propio?", example = "yes")
     private String ownTelephone;
+
+    @Schema(description = "¿Trabajador extranjero?", example = "yes")
     private String foreignWorker;
 
-    // Constructor sin argumentos (necesario para deserialización JSON)
-    public CreditRequest() {
-    }
+    // -- Constructores, getters y setters --
 
-    public String getCheckingStatus() {
-        return checkingStatus;
-    }
-    public void setCheckingStatus(String checkingStatus) {
-        this.checkingStatus = checkingStatus;
-    }
+    public CreditRequest() {}
 
-    public int getDuration() {
-        return duration;
-    }
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
+    // Getters y setters (uno por campo)
+    public String getCheckingStatus() { return checkingStatus; }
+    public void setCheckingStatus(String checkingStatus) { this.checkingStatus = checkingStatus; }
 
-    public String getCreditHistory() {
-        return creditHistory;
-    }
-    public void setCreditHistory(String creditHistory) {
-        this.creditHistory = creditHistory;
-    }
+    public int getDuration() { return duration; }
+    public void setDuration(int duration) { this.duration = duration; }
 
-    public String getPurpose() {
-        return purpose;
-    }
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
-    }
+    public String getCreditHistory() { return creditHistory; }
+    public void setCreditHistory(String creditHistory) { this.creditHistory = creditHistory; }
 
-    public double getCreditAmount() {
-        return creditAmount;
-    }
-    public void setCreditAmount(double creditAmount) {
-        this.creditAmount = creditAmount;
-    }
+    public String getPurpose() { return purpose; }
+    public void setPurpose(String purpose) { this.purpose = purpose; }
 
-    public String getSavingsStatus() {
-        return savingsStatus;
-    }
-    public void setSavingsStatus(String savingsStatus) {
-        this.savingsStatus = savingsStatus;
-    }
+    public double getCreditAmount() { return creditAmount; }
+    public void setCreditAmount(double creditAmount) { this.creditAmount = creditAmount; }
 
-    public String getEmployment() {
-        return employment;
-    }
-    public void setEmployment(String employment) {
-        this.employment = employment;
-    }
+    public String getSavingsStatus() { return savingsStatus; }
+    public void setSavingsStatus(String savingsStatus) { this.savingsStatus = savingsStatus; }
 
-    public int getInstallmentCommitment() {
-        return installmentCommitment;
-    }
-    public void setInstallmentCommitment(int installmentCommitment) {
-        this.installmentCommitment = installmentCommitment;
-    }
+    public String getEmployment() { return employment; }
+    public void setEmployment(String employment) { this.employment = employment; }
 
-    public String getPersonalStatus() {
-        return personalStatus;
-    }
-    public void setPersonalStatus(String personalStatus) {
-        this.personalStatus = personalStatus;
-    }
+    public int getInstallmentCommitment() { return installmentCommitment; }
+    public void setInstallmentCommitment(int installmentCommitment) { this.installmentCommitment = installmentCommitment; }
 
-    public String getOtherParties() {
-        return otherParties;
-    }
-    public void setOtherParties(String otherParties) {
-        this.otherParties = otherParties;
-    }
+    public String getPersonalStatus() { return personalStatus; }
+    public void setPersonalStatus(String personalStatus) { this.personalStatus = personalStatus; }
 
-    public int getResidenceSince() {
-        return residenceSince;
-    }
-    public void setResidenceSince(int residenceSince) {
-        this.residenceSince = residenceSince;
-    }
+    public String getOtherParties() { return otherParties; }
+    public void setOtherParties(String otherParties) { this.otherParties = otherParties; }
 
-    public String getPropertyMagnitude() {
-        return propertyMagnitude;
-    }
-    public void setPropertyMagnitude(String propertyMagnitude) {
-        this.propertyMagnitude = propertyMagnitude;
-    }
+    public int getResidenceSince() { return residenceSince; }
+    public void setResidenceSince(int residenceSince) { this.residenceSince = residenceSince; }
 
-    public int getAge() {
-        return age;
-    }
-    public void setAge(int age) {
-        this.age = age;
-    }
+    public String getPropertyMagnitude() { return propertyMagnitude; }
+    public void setPropertyMagnitude(String propertyMagnitude) { this.propertyMagnitude = propertyMagnitude; }
 
-    public String getOtherPaymentPlans() {
-        return otherPaymentPlans;
-    }
-    public void setOtherPaymentPlans(String otherPaymentPlans) {
-        this.otherPaymentPlans = otherPaymentPlans;
-    }
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
 
-    public String getHousing() {
-        return housing;
-    }
-    public void setHousing(String housing) {
-        this.housing = housing;
-    }
+    public String getOtherPaymentPlans() { return otherPaymentPlans; }
+    public void setOtherPaymentPlans(String otherPaymentPlans) { this.otherPaymentPlans = otherPaymentPlans; }
 
-    public int getExistingCredits() {
-        return existingCredits;
-    }
-    public void setExistingCredits(int existingCredits) {
-        this.existingCredits = existingCredits;
-    }
+    public String getHousing() { return housing; }
+    public void setHousing(String housing) { this.housing = housing; }
 
-    public String getJob() {
-        return job;
-    }
-    public void setJob(String job) {
-        this.job = job;
-    }
+    public int getExistingCredits() { return existingCredits; }
+    public void setExistingCredits(int existingCredits) { this.existingCredits = existingCredits; }
 
-    public int getNumDependents() {
-        return numDependents;
-    }
-    public void setNumDependents(int numDependents) {
-        this.numDependents = numDependents;
-    }
+    public String getJob() { return job; }
+    public void setJob(String job) { this.job = job; }
 
-    public String getOwnTelephone() {
-        return ownTelephone;
-    }
-    public void setOwnTelephone(String ownTelephone) {
-        this.ownTelephone = ownTelephone;
-    }
+    public int getNumDependents() { return numDependents; }
+    public void setNumDependents(int numDependents) { this.numDependents = numDependents; }
 
-    public String getForeignWorker() {
-        return foreignWorker;
-    }
-    public void setForeignWorker(String foreignWorker) {
-        this.foreignWorker = foreignWorker;
-    }
+    public String getOwnTelephone() { return ownTelephone; }
+    public void setOwnTelephone(String ownTelephone) { this.ownTelephone = ownTelephone; }
+
+    public String getForeignWorker() { return foreignWorker; }
+    public void setForeignWorker(String foreignWorker) { this.foreignWorker = foreignWorker; }
 }

@@ -1,52 +1,29 @@
 package com.example.credit;
 
-/**
- * DTO que representa la respuesta de la predicción de crédito.
- */
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "Resultado de la predicción de crédito")
 public class CreditModel {
-    /** Clase predicha ("good" o "bad") */
+
+    @Schema(description = "Clase predicha: good o bad", example = "good")
     private String predictedClass;
 
-    /** Probabilidad de que sea "good" */
+    @Schema(description = "Probabilidad de buen crédito", example = "0.85")
     private double probabilityGood;
 
-    /** Probabilidad de que sea "bad" */
+    @Schema(description = "Probabilidad de mal crédito", example = "0.15")
     private double probabilityBad;
 
-    // Constructor sin argumentos
-    public CreditModel() {
-    }
+    // -- Constructores, getters y setters --
 
-    public String getPredictedClass() {
-        return predictedClass;
-    }
+    public CreditModel() {}
 
-    public void setPredictedClass(String predictedClass) {
-        this.predictedClass = predictedClass;
-    }
+    public String getPredictedClass() { return predictedClass; }
+    public void setPredictedClass(String predictedClass) { this.predictedClass = predictedClass; }
 
-    public double getProbabilityGood() {
-        return probabilityGood;
-    }
+    public double getProbabilityGood() { return probabilityGood; }
+    public void setProbabilityGood(double probabilityGood) { this.probabilityGood = probabilityGood; }
 
-    public void setProbabilityGood(double probabilityGood) {
-        this.probabilityGood = probabilityGood;
-    }
-
-    public double getProbabilityBad() {
-        return probabilityBad;
-    }
-
-    public void setProbabilityBad(double probabilityBad) {
-        this.probabilityBad = probabilityBad;
-    }
-
-    @Override
-    public String toString() {
-        return "CreditModel{" +
-                "predictedClass='" + predictedClass + '\'' +
-                ", probabilityGood=" + probabilityGood +
-                ", probabilityBad=" + probabilityBad +
-                '}';
-    }
+    public double getProbabilityBad() { return probabilityBad; }
+    public void setProbabilityBad(double probabilityBad) { this.probabilityBad = probabilityBad; }
 }
